@@ -1,0 +1,61 @@
+{
+  "name": "Transportation Problem",
+  "description": "Minimizing transportation cost from multiple origins to multiple destinations",
+  "webamlVersion": 1,
+  "model": {
+    "sets": [
+      {
+        "name": "origin",
+        "type": "SIMPLE",
+        "values": ["Seattle", "San-Diego"],
+        "description": "Canning plants"
+      },
+      {
+        "name": "destination",
+        "type": "SIMPLE",
+        "values": ["New-York", "Chicago", "Topeka"],
+        "description": "Markets"
+      }
+    ],
+    "parameters": [
+      {
+      	"name": "F",
+      	"type": "SCALAR",
+      	"values": [90],
+      	"description": "Freight in dollars per case per thousand miles"
+      },
+      {
+      	"name": "supply",
+      	"type": "RANGE_OVER_SET",
+      	"over": "origin",
+      	"values": [350, 600],
+      	"description": "Capacity of plants in cases"
+      }, 
+      {
+      	"name": "demand",
+      	"type": "RANGE_OVER_SET",
+      	"over": "destination",
+      	"values": [325, 300, 275],
+      	"description": "Demand at markets in cases"
+      }     
+    ],
+    "tables": [
+      {
+      	"name": "distance",
+      	"type": "TABLE_OVER_SETS",
+      	"rows": "origin",
+      	"columns": "destination",
+      	"values": [
+      		[2.5, 1.7, 1.8],
+      		[2.5, 1.8, 1.4]
+      	],
+      	"description": "Distance in thousands of miles"
+      }
+    ],
+    "equations": [
+      {
+
+      }
+    ]
+  }
+}
