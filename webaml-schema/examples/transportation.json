@@ -1,0 +1,103 @@
+{
+  "name": "Transportation Problem",
+  "description": "Minimizing transportation cost from multiple origins to multiple destinations",
+  "webamlVersion": 1,
+  "model": {
+    "sets": [
+      {
+        "name": "i",
+        "type": "SIMPLE",
+        "values": ["Seattle", "San-Diego"],
+        "valueType": "STRING",
+        "description": "Canning plants"
+      },
+      {
+        "name": "j",
+        "type": "SIMPLE",
+        "values": ["New-York", "Chicago", "Topeka"],
+        "valueType": "STRING",
+        "description": "Markets"
+      }
+    ],
+    "parameters": [
+      {
+      	"name": "f",
+      	"type": "SCALAR",
+      	"values": ["90"],
+        "valueType": "NUMBER",
+      	"description": "Freight in dollars per case per thousand miles"
+      },
+      {
+      	"name": "a",
+      	"type": "INDEXED",
+      	"indexes": ["i"],
+      	"values": ["350", "600"],
+        "valueType": "NUMBER",
+      	"description": "Capacity of plants in cases"
+      }, 
+      {
+      	"name": "b",
+      	"type": "INDEXED",
+      	"indexes": ["j"],
+      	"values": ["325", "300", "275"],
+      	"valueType": "NUMBER",
+      	"description": "Demand at markets in cases"
+      }, 
+      {
+      	"name": "c",
+      	"type": "INDEXED",
+      	"indexes": ["i", "j"],
+      	"values": ["f * d_(i,j) / 1000"],
+      	"valueType": "FORMULA",
+      	"description": "Transport cost in thousands of dollars per cases"
+      }       
+    ],
+    "tables": [
+      {
+      	"name": "d",
+      	"rows": "origin",
+      	"columns": "destination",
+      	"values": [
+      		["2.5", "1.7", "1.8"],
+      		["2.5", "1.8", "1.4"]
+      	],
+        "valueType": "NUMBER",
+      	"description": "Distance in thousands of miles"
+      }
+    ],
+    "variables": [
+      {
+      	"name": "c",
+      	"type": "CONTINUOUS",
+      	"indexes": ["i", "j"],
+      	"value": null,
+      	"bounds": ["0", null],
+      	"description": "Transport cost in thousands of dollars per cases"
+      }  
+    ],
+    "constraints": [
+      {
+      	"name": "supply",
+      	"type": "INDEXED",
+      	"indexes": ["i"],
+      	"value": "sum_j x_(ij) <= a_i",
+      	"description": "Observe supply limit at plant"
+      },
+      {
+      	"name": "demand",
+      	"type": "INDEXED",
+      	"indexes": ["j"],
+      	"value": "sum_i x_(ij) >= b_j",
+      	"description": "Satisfy demand at market"
+      }      
+    ],
+    "objectives": [
+      {
+      	"name": "cost",
+      	"type": "MINIMIZE",
+      	"value": "sum_i sum_j c_(ij) * x_(ij)",
+      	"description": "MINIMIZE transportation cost"
+      }
+    ]
+  }
+}
