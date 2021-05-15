@@ -1,0 +1,431 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "WebAML Model Solver",
+    "version": "1.0.0",
+    "title": "WebAML Model Solver",
+    "contact": {
+      "email": "vaidas.jusevicius@mif.vu.lt"
+    }
+  },
+  "paths": {
+    "/model/{operation}": {
+      "post": {
+        "summary": "Solve or convert a WebAML model using specific AML",
+        "description": "AAA",
+        "operationId": "solveModel",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "requestBody": {
+          "$ref": "#/components/requestBodies/WebAMLModel"
+        },
+        "parameters": [
+          {
+            "name": "operation",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "solve",
+              "enum": [
+                "solve",
+                "convert"
+              ]
+            },
+            "description": "Operation to process the model"
+          },
+          {
+            "name": "aml",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "gams",
+              "enum": [
+                "ampl",
+                "gams",
+                "pyomo",
+                "jump"
+              ]
+            },
+            "description": "AML for solving the model"
+          },
+          {
+            "name": "solver",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Solver for solving the model. If none specified default for AML will be used."
+          },
+          {
+            "name": "features",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "presolve",
+                "parallelize"
+              ]
+            },
+            "description": "Additional features to be used if supported by AML."
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "requestBodies": {
+      "WebAMLModel": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "title": "WebAML v1.0 JSON schema",
+              "description": "JSON Schema for Web-based algebraic modeling language",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "webamlVersion",
+                "model"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "The name of a model"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "The description of a model"
+                },
+                "webamlVersion": {
+                  "type": "integer",
+                  "title": "Version of WebAML used for a model",
+                  "default": 1
+                },
+                "model": {
+                  "type": "object",
+                  "title": "Content of WebAML model",
+                  "required": [
+                    "sets",
+                    "parameters",
+                    "tables",
+                    "variables",
+                    "constraints",
+                    "objectives"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "sets": {
+                      "type": "array",
+                      "title": "All sets defined in a model",
+                      "items": {
+                        "type": "object",
+                        "title": "WebAML set structure",
+                        "required": [
+                          "name",
+                          "type",
+                          "values",
+                          "valueType"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "title": "Name of a set"
+                          },
+                          "type": {
+                            "type": "string",
+                            "title": "Type of a set",
+                            "enum": [
+                              "SIMPLE"
+                            ],
+                            "description": "Currently only SIMPLE sets are supported.",
+                            "default": "SIMPLE"
+                          },
+                          "values": {
+                            "type": "array",
+                            "title": "Values of a set",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "valueType": {
+                            "type": "string",
+                            "title": "Data type of values in a set",
+                            "enum": [
+                              "STRING",
+                              "NUMBER"
+                            ]
+                          },
+                          "description": {
+                            "type": "string",
+                            "title": "The description of a set"
+                          }
+                        }
+                      }
+                    },
+                    "parameters": {
+                      "type": "array",
+                      "title": "List of parameters in a model",
+                      "items": {
+                        "type": "object",
+                        "title": "WebAML parameter structure",
+                        "required": [
+                          "name",
+                          "type",
+                          "values",
+                          "valueType"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "title": "Name of a parameter"
+                          },
+                          "type": {
+                            "type": "string",
+                            "title": "Type of a parameter",
+                            "enum": [
+                              "SCALAR",
+                              "INDEXED"
+                            ],
+                            "description": "Indexed parameters require indexes property to be provided."
+                          },
+                          "indexes": {
+                            "type": "array",
+                            "title": "Indexes as Sets for INDEXED parameters",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "values": {
+                            "type": "array",
+                            "title": "Values of a parameter",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "valueType": {
+                            "type": "string",
+                            "title": "Data type of values in a parameter",
+                            "description": "FORMULA require to provide single values which contains expression to calculate",
+                            "enum": [
+                              "NUMBER",
+                              "FORMULA"
+                            ]
+                          },
+                          "description": {
+                            "type": "string",
+                            "title": "Description of a parameter"
+                          }
+                        }
+                      }
+                    },
+                    "tables": {
+                      "type": "array",
+                      "title": "List of tables in a model",
+                      "items": {
+                        "type": "object",
+                        "title": "WebAML table structure",
+                        "required": [
+                          "name",
+                          "rows",
+                          "columns",
+                          "values",
+                          "valueType"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "title": "Name of a table"
+                          },
+                          "rows": {
+                            "type": "string",
+                            "title": "Set to be used as rows index"
+                          },
+                          "columns": {
+                            "type": "string",
+                            "title": "Set to be used as columns index"
+                          },
+                          "values": {
+                            "type": "array",
+                            "title": "The values schema",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "description": "Two dimensional array of size rows x columns"
+                          },
+                          "valueType": {
+                            "type": "string",
+                            "enum": [
+                              "NUMBER"
+                            ],
+                            "title": "Data type of table cells"
+                          },
+                          "description": {
+                            "type": "string",
+                            "title": "Description of a table"
+                          }
+                        }
+                      }
+                    },
+                    "variables": {
+                      "type": "array",
+                      "title": "List of variables in a model",
+                      "items": {
+                        "type": "object",
+                        "title": "WebAML variable structure",
+                        "required": [
+                          "name",
+                          "type"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "title": "Name of a variable"
+                          },
+                          "type": {
+                            "type": "string",
+                            "title": "Type of a variable",
+                            "enum": [
+                              "CONTINUOUS",
+                              "BINARY",
+                              "INTEGER"
+                            ]
+                          },
+                          "indexes": {
+                            "type": "array",
+                            "title": "Sets as indexes for array variables",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "value": {
+                            "type": "string",
+                            "title": "Fixed value of a variable",
+                            "default": null,
+                            "nullable": true
+                          },
+                          "bounds": {
+                            "type": "array",
+                            "title": "Lower and upper bounds of a variable",
+                            "maxItems": 2,
+                            "minItems": 2,
+                            "items": {
+                              "type": "string",
+                              "nullable": true
+                            }
+                          },
+                          "description": {
+                            "type": "string",
+                            "title": "Description of a variable"
+                          }
+                        }
+                      }
+                    },
+                    "constraints": {
+                      "type": "array",
+                      "title": "List of constraints in a model",
+                      "items": {
+                        "type": "object",
+                        "title": "WebAML constraints structure",
+                        "required": [
+                          "name",
+                          "type",
+                          "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "title": "Name of a constraint"
+                          },
+                          "type": {
+                            "type": "string",
+                            "title": "Type of constraint",
+                            "enum": [
+                              "INDEXED",
+                              "SIMPLE"
+                            ]
+                          },
+                          "indexes": {
+                            "type": "array",
+                            "title": "The indexes schema",
+                            "description": "Required if constraint type is INDEXED",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "value": {
+                            "type": "string",
+                            "title": "Value of a constraint as a AsciiMath expression"
+                          },
+                          "description": {
+                            "type": "string",
+                            "title": "Description of a constraint"
+                          }
+                        }
+                      }
+                    },
+                    "objectives": {
+                      "type": "array",
+                      "title": "List of objectives",
+                      "description": "Currently only one objective per model is supported",
+                      "maxItems": 1,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "title": "WebAML objective structure",
+                        "required": [
+                          "name",
+                          "type",
+                          "value"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "title": "Name of a objective function"
+                          },
+                          "type": {
+                            "type": "string",
+                            "title": "Type of objective function",
+                            "enum": [
+                              "MAXIMIZE",
+                              "MINIMIZE"
+                            ]
+                          },
+                          "value": {
+                            "type": "string",
+                            "title": "Value of a objective function as a AsciiMath expression"
+                          },
+                          "description": {
+                            "type": "string",
+                            "title": "Description of a objective function"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Pet object that needs to be added to the store",
+        "required": true
+      }
+    }
+  }
+}

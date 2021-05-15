@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "json-schema-to-openapi-schema": "^0.4.0"
+  },
+  "scripts": {
+    "generate": "node openapi-request-schema-generator.js"
+  }
+}

@@ -1,10 +1,25 @@
-webaml-backend/HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+### Mac ###
 .DS_Store
+
+### Gradle ###
+webaml-backend/.gradle
+webaml-backend/build/
+!webaml-backend/gradle/wrapper/gradle-wrapper.jar
+!webaml-backend/**/src/main/**/build/
+!webaml-backend/**/src/test/**/build/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+gen/
+
+### Node ###
+/webaml-schema/tools/node_modules
 
 ### STS ###
 .apt_generated
@@ -17,22 +32,3 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
