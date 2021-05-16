@@ -1,6 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.4.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'org.openapi.generator' version '5.1.0'
 	id 'java'
 }
 
@@ -13,11 +14,31 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation "org.springframework.boot:spring-boot-starter"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework.boot:spring-boot-starter-validation"
+	implementation "org.springframework.data:spring-data-commons"
+	implementation "javax.xml.bind:jaxb-api:2.3.1"
+	implementation "com.fasterxml.jackson.core:jackson-databind"
+	implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
+	implementation "org.openapitools:jackson-databind-nullable:0.2.1"
+	implementation "org.springdoc:springdoc-openapi-ui:1.5.8"
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
 }
 
 test {
 	useJUnitPlatform()
+}
+
+openApiGenerate {
+	generatorName = "spring"
+	inputSpec = "$rootDir/../webaml-schema/tools/openapi-webmal-specification.json".toString()
+	outputDir = "$buildDir/generated-api".toString()
+	apiPackage = "lt.vu.mif.dmsti.webaml.api"
+	modelPackage = "lt.vu.mif.dmsti.webaml.models"
+	configOptions = [
+			delegatePattern: "true",
+			dateLibrary: "java8",
+			library: "spring-boot"
+	]
 }
