@@ -13,7 +13,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan(basePackages = {"lt.vu.mif.dmsti.webaml.api", "lt.vu.mif.dmsti.webaml.controllers"})
-public @SpringBootApplication class WebAMLConfig {
+public @SpringBootApplication
+class WebAMLConfig {
 
     public static void main(String[] args) {
         new SpringApplication(WebAMLConfig.class).run(args);
@@ -25,7 +26,7 @@ public @SpringBootApplication class WebAMLConfig {
     }
 
     @Bean
-    public OpenAPI springShopOpenAPI() {
+    public OpenAPI springWebAMLOpenAPI() {
         return new OpenAPI()
                 .info(new Info().title("WebAML API")
                         .description("WebAML solver and converter services")

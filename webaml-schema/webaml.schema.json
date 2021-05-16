@@ -2,8 +2,8 @@
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://github.com/vaidasj/webaml/tree/master/webaml-schema/webaml.schema.json",
     "type": "object",
-    "title": "WebAML v1.0 JSON schema",
-    "description": "JSON Schema for Web-based algebraic modeling language",
+    "title": "WebAML v1.0",
+    "description": "Web-based algebraic modeling language",
     "additionalProperties": false,
     "required": [
         "name",
@@ -39,7 +39,8 @@
             "properties": {
                 "sets": {
                     "type": "array",
-                    "title": "All sets defined in a model",
+                    "title": "List of sets in a model",
+                    "default": [],
                     "items": {
                         "type": "object",
                         "title": "WebAML set structure",
@@ -84,6 +85,7 @@
                 "parameters": {
                     "type": "array",
                     "title": "List of parameters in a model",
+                    "default": [],
                     "items": {
                         "type": "object",
                         "title": "WebAML parameter structure",
@@ -135,6 +137,7 @@
                 "tables": {
                     "type": "array",
                     "title": "List of tables in a model",
+                    "default": [],
                     "items": {
                         "type": "object",
                         "title": "WebAML table structure",
@@ -185,6 +188,7 @@
                 "variables": {
                     "type": "array",
                     "title": "List of variables in a model",
+                    "default": [],
                     "items": {
                         "type": "object",
                         "title": "WebAML variable structure",
@@ -234,6 +238,7 @@
                 "constraints": {
                     "type": "array",
                     "title": "List of constraints in a model",
+                    "default": [],
                     "items": {
                         "type": "object",
                         "title": "WebAML constraints structure",

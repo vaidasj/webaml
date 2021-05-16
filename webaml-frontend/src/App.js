@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import WebAMLModel from './components/WebAMLModel'
+import Solver from './components/Solver'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className="ui two column padded grid">
+            <div className="column">
+                <div className="ui segment">
+                    <WebAMLModel />
+                </div>
+            </div>
+            <div className="column">
+                <div className="ui segment">
+                    <Solver />
+                </div>
+            </div>
+        </div>
     </div>
   );
 }
