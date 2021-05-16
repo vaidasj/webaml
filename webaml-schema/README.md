@@ -1,5 +1,9 @@
 # WebAML
 
+## TODO
+
+- Consider adding dependencies
+
 ## Sets
 
 - Support only one type: SIMPLE set
