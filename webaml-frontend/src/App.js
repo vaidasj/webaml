@@ -1,23 +1,31 @@
 import WebAMLModel from './components/WebAMLModel'
 import Solver from './components/Solver'
+import React, {useState} from 'react';
 
+export const WebAMLContext = React.createContext();
 
 function App() {
+
+    const [model, setModel] = useState(null)
+
   return (
-    <div className="App">
-        <div className="ui two column padded grid">
-            <div className="column">
-                <div className="ui segment">
-                    <WebAMLModel />
+      <WebAMLContext.Provider value={{ model, setModel }}>
+        <div className="App">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12">&nbsp;</div>
                 </div>
-            </div>
-            <div className="column">
-                <div className="ui segment">
-                    <Solver />
+                <div className="row">
+                    <div className="col-lg-6">
+                        <div className="well"><WebAMLModel /></div>
+                    </div>
+                    <div className="col-lg-6">
+                        <div className="well"><Solver/></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+      </WebAMLContext.Provider>
   );
 }
 

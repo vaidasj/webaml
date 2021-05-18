@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://github.com/vaidasj/webaml/tree/master/webaml-schema/webaml.schema.json",
     "type": "object",
-    "title": "WebAML v1.0",
+    "title": "WebAML",
     "description": "Web-based algebraic modeling language",
     "additionalProperties": false,
     "required": [
@@ -26,7 +26,7 @@
         },
         "model": {
             "type": "object",
-            "title": "Content of WebAML model",
+            "title": "WebAML model",
             "required": [
                 "sets",
                 "parameters",

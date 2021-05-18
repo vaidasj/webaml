@@ -1,0 +1,5 @@
+{
+  "name": "Transportation Problem",
+  "description": "Minimizing transportation cost from multiple origins to multiple destinations",
+  "webamlVersion": 1
+}
