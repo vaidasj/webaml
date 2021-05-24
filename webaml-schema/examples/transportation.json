@@ -47,7 +47,7 @@
       	"name": "c",
       	"type": "INDEXED",
       	"indexes": ["i", "j"],
-      	"values": ["f * d_(i,j) / 1000"],
+      	"values": ["f * d_(ij) / 1000"],
       	"valueType": "FORMULA",
       	"description": "Transport cost in thousands of dollars per cases"
       }       
@@ -55,8 +55,8 @@
     "tables": [
       {
       	"name": "d",
-      	"rows": "origin",
-      	"columns": "destination",
+      	"rows": "i",
+      	"columns": "j",
       	"values": [
       		["2.5", "1.7", "1.8"],
       		["2.5", "1.8", "1.4"]

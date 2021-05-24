@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages = {"lt.vu.mif.dmsti.webaml.api", "lt.vu.mif.dmsti.webaml.controllers"})
+@ComponentScan(basePackages = {"lt.vu.mif.dmsti.webaml.api", "lt.vu.mif.dmsti.webaml.controllers", "lt.vu.mif.dmsti.webaml.services"})
 public @SpringBootApplication
 class WebAMLConfig {
 
