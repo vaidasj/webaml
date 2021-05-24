@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -63,6 +64,7 @@ public class WebAMLParameterStructure   {
 
   @JsonProperty("values")
   @Valid
+  @Size(min=1)
   private List<String> values = new ArrayList<>();
 
   /**
