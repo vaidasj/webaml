@@ -268,7 +268,7 @@
                             },
                             "value": {
                                 "type": "string",
-                                "title": "Value of a constraint as a AsciiMath expression"
+                                "title": "Value of a constraint as a LaTeX expression"
                             },
                             "description": {
                                 "type": "string",
@@ -304,7 +304,7 @@
                             },
                             "value": {
                                 "type": "string",
-                                "title": "Value of a objective function as a AsciiMath expression"
+                                "title": "Value of a objective function as a LaTeX expression"
                             },
                             "description": {
                                 "type": "string",

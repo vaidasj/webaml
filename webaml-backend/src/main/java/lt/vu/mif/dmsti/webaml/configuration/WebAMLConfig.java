@@ -8,13 +8,14 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import org.openapitools.jackson.nullable.JsonNullableModule;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
+@SpringBootApplication
 @ComponentScan(basePackages = {"lt.vu.mif.dmsti.webaml.api", "lt.vu.mif.dmsti.webaml.controllers", "lt.vu.mif.dmsti.webaml.services"})
-public @SpringBootApplication
-class WebAMLConfig {
+public class WebAMLConfig {
 
     public static void main(String[] args) {
         new SpringApplication(WebAMLConfig.class).run(args);
