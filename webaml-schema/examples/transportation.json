@@ -47,7 +47,7 @@
       	"name": "c",
       	"type": "INDEXED",
       	"indexes": ["i", "j"],
-      	"values": ["f * d_(ij) / 1000"],
+      	"values": ["f * d_{ij} / 1000"],
       	"valueType": "FORMULA",
       	"description": "Transport cost in thousands of dollars per cases"
       }       
@@ -80,14 +80,14 @@
       	"name": "supply",
       	"type": "INDEXED",
       	"indexes": ["i"],
-      	"value": "sum_j x_(ij) <= a_i",
+      	"value": "\\sum_j x_{ij} \\leq a_i",
       	"description": "Observe supply limit at plant"
       },
       {
       	"name": "demand",
       	"type": "INDEXED",
       	"indexes": ["j"],
-      	"value": "sum_i x_(ij) >= b_j",
+      	"value": "\\sum_i x_{ij} \\geq b_j",
       	"description": "Satisfy demand at market"
       }      
     ],
@@ -95,7 +95,7 @@
       {
       	"name": "cost",
       	"type": "MINIMIZE",
-      	"value": "sum_i sum_j c_(ij) * x_(ij)",
+      	"value": "\\sum_i \\sum_j c_{ij} * x_{ij}",
       	"description": "MINIMIZE transportation cost"
       }
     ]
