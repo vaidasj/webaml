@@ -28,7 +28,7 @@ public class ModelController implements ModelApiDelegate {
                                                            String features) {
 
         String converterId = amlConverters.get(aml.toLowerCase());
-        String convertedModel = converters.get(converterId).convert(webAMLModel.getModel());
+        String convertedModel = converters.get(converterId).convert(webAMLModel.getName(), webAMLModel.getModel());
 
         System.out.println(convertedModel);
 
