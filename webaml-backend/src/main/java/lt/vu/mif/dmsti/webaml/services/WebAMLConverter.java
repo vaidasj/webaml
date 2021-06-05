@@ -4,5 +4,5 @@ import lt.vu.mif.dmsti.webaml.models.ContentOfWebAMLModel;
 
 public interface WebAMLConverter {
 
-    String convert(ContentOfWebAMLModel model);
+    String convert(String modelName, ContentOfWebAMLModel model);
 }
