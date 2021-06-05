@@ -46,6 +46,7 @@ function Solver() {
 
     const context = React.useContext(WebAMLContext);
 
+    const [formData, setFormData] = useState(null);
     const [solution, setSolution] = useState(null);
     const [details, setDetails] = useState(null);
 
@@ -64,8 +65,17 @@ function Solver() {
             setSolution(response.data.result);
             setDetails(response.data.verboseOutput);
         })
-        .catch(error => {
-            console.log(error);
+        .catch(function (error) {
+            if (error.response) {
+                setSolution(error.response.data.error);
+                setDetails(error.response.data.verboseOutput);
+            } else if (error.request) {
+                setSolution("Backend did not respond");
+                setDetails(error.request);
+            } else {
+                setSolution("Frontend error");
+                setDetails(error.message);
+            }
         });
     }
     return (
@@ -73,6 +83,10 @@ function Solver() {
             <Form
                 schema={schema}
                 uiSchema={uiSchema}
+                formData={formData}
+                onChange={e => {
+                    setFormData(e.formData)
+                }}
                 onSubmit={({formData}, _e) => handleCallSolver(formData.aml, formData.solver)}
             >
                 <div>
@@ -90,7 +104,18 @@ function Solver() {
 
             <div className="panel panel-default" style={details ? {} : { display: 'none' }}>
                 <div className="panel-heading"><strong>Details</strong></div>
-                <div className="panel-body">{details}</div>
+                <div className="panel-body">
+                    {details &&
+                    details.split('\n').map(function (item, key) {
+                        return (
+                            <span key={key}>
+                                {item}
+                                <br/>
+                            </span>
+                        )
+                    })
+                    }
+                </div>
             </div>
         </>
     );
