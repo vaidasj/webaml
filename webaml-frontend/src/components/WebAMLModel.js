@@ -1,15 +1,45 @@
 import Form from '@rjsf/core';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import {WebAMLContext} from "../App";
+import {LatexWidget} from "./LatexWidget";
 
 function WebAMLModel() {
 
     const schema = require('../../../webaml-schema/webaml.schema.json');
     const uiSchema =  {
-        webamlVersion: {
+        "webamlVersion": {
             "ui:widget": "hidden",
         },
+        "model": {
+            "objectives": {
+                "items": {
+                    "value": {
+                        "ui:widget": "latexWidget"
+                    }
+                }
+            },
+            "constraints": {
+                "items": {
+                    "value": {
+                        "ui:widget": "latexWidget"
+                    }
+                }
+            },
+            "parameters": {
+                "items": {
+                    "values": {
+                        "items": {
+                            "ui:widget": "latexWidget"
+                        }
+                    }
+                }
+            }
+        }
     };
+
+    const widgets = {
+        latexWidget: LatexWidget
+    }
 
     const {setModel} = useContext(WebAMLContext)
 
@@ -32,13 +62,14 @@ function WebAMLModel() {
             const model = JSON.parse(e.target.result)
             setModel(model);
             setFormData(model);
+            window.scrollTo(0, 0);
         }
     };
 
     return (
         <div>
             <Form schema={schema}
-              uiSchema={uiSchema} formData={formData}
+              uiSchema={uiSchema} formData={formData} widgets={widgets}
               onChange={e => {
                   setFormData(e.formData)
                   setModel(e.formData)

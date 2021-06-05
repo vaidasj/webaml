@@ -2,7 +2,6 @@ import Form from '@rjsf/core';
 import axios from 'axios';
 import React, { useState } from 'react';
 import {WebAMLContext} from "../App";
-import {LatexWidget} from "./LatexWidget";
 
 function Solver() {
 
@@ -15,11 +14,6 @@ function Solver() {
             "solver"
         ],
         properties: {
-            latex: {
-              type: "string",
-              title: "Test \"LatexWidget\"",
-              default: "\\int_0 ^ \\infty x^2 dx"
-            },
             aml: {
                 type: "string",
                 title: "Algebraic Modeling Language",
@@ -47,14 +41,7 @@ function Solver() {
     const uiSchema = {
         "features": {
             "ui:widget": "checkboxes"
-        },
-        "latex": {
-            "ui:widget": "latexWidget"
         }
-    }
-
-    const widgets = {
-        latexWidget: LatexWidget
     }
 
     const context = React.useContext(WebAMLContext);
@@ -86,7 +73,6 @@ function Solver() {
             <Form
                 schema={schema}
                 uiSchema={uiSchema}
-                widgets={widgets}
                 onSubmit={({formData}, _e) => handleCallSolver(formData.aml, formData.solver)}
             >
                 <div>

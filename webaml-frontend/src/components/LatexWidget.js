@@ -19,7 +19,7 @@ export function LatexWidget(props) {
       <div className={"latex__container"}>
         {/* Anything you want goes here */}
         {/*<u>Result:</u>*/}
-        <BlockMath math={props.value} renderError={() => <div>Invalid syntax</div>} />
+        <BlockMath math={props.value ? props.value : " "} errorColor={'#cc0000'}  />
       </div>
     </>
   );
