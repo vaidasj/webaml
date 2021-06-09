@@ -67,4 +67,14 @@ public class AmlResult {
     public void setDetails(String details) {
         this.details = details;
     }
+
+    @Override
+    public String toString() {
+        return "AmlResult{" +
+                "solutionFound=" + solutionFound +
+                ", objectiveValue='" + objectiveValue + '\'' +
+                ", error='" + error + '\'' +
+                ", details='" + details + '\'' +
+                '}';
+    }
 }
