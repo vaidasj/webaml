@@ -9,30 +9,27 @@ function Solver() {
 
     useEffect(() => {
         const basicSchema = {
-            title: "Solve",
-            description: "Solve WebAML model using specific AML, solver and features",
-            type: "object",
-            required: [
-                "aml",
-                "solver"
+            "title": "Solve",
+            "description": "Solve WebAML model using specific AML, solver and features",
+            "type": "object",
+            "properties": {
+                "aml": {
+                    "title": "Algebraic Modeling Language",
+                    "type": "string",
+                    "enum": ["GAMS"],
+                    "default": "GAMS"
+                }
+            },
+            "required": [
+                "aml", "solver"
             ],
-            properties: {
-                aml: {
-                    type: "string",
-                    title: "Algebraic Modeling Language",
-                    enum: ["AMPL", "GAMS", "JuMP", "Pyomo"],
-                    default: "GAMS"
-                },
-                solver: {
-                    type: "string",
-                    title: "Solver",
-                    enum: ["GLPK", "CPLEX", "BARON", "GUROBI"],
-                    default: "GLPK"
+            "dependencies": {
+                "aml": {
+                    "oneOf": []
                 }
             }
         };
 
-        console.log("USE effect");
         async function fetchData() {
             await axios({
                 baseURL: '/aml',
@@ -40,8 +37,27 @@ function Solver() {
                 timeout: 1000,
             })
                 .then(response => {
-                    basicSchema.properties.aml.enum = Object.keys(response.data);
-                    basicSchema.properties.solver.enum = response.data.GAMS;
+
+                    const amls = Object.keys(response.data);
+
+                    basicSchema.properties.aml.enum = amls;
+
+                    amls.forEach(function (item, index) {
+                        basicSchema.dependencies.aml.oneOf.push( {
+                            "properties": {
+                                "aml": {
+                                    "type": "string",
+                                    "title": "Algebraic Modeling Language",
+                                    "enum": [item]
+                                },
+                                "solver": {
+                                    "type": "string",
+                                    "title": "Solver",
+                                    "enum": response.data[item]
+                                }
+                            }
+                        })
+                    });
                     setSchema(basicSchema);
                 })
                 .catch(function (error) { });
@@ -58,7 +74,7 @@ function Solver() {
         await axios({
             baseURL: '/model/solve',
             method: 'POST',
-            timeout: 1000,
+            timeout: 10000,
             data: context.model,
             params: {
                 aml: aml,
