@@ -204,6 +204,7 @@ public class GamsConverter implements WebAMLConverter {
     public void writeInstructions(StringJoiner joiner, String modelName, WebAMLObjectiveStructure.TypeEnum direction) {
         modelName = modelName.replaceAll(" ", "_");
         joiner.add(String.format("Model %s /all/ ;", modelName));
+        joiner.add(String.format("%s.optfile = 1;", modelName));
         joiner.add(String.format("Solve %s using LP %s obj ;", modelName,
                 direction == WebAMLObjectiveStructure.TypeEnum.MINIMIZE ? "minimizing" : "maximizing"));
     }

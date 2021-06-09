@@ -31,11 +31,21 @@ public class ModelController implements ModelApiDelegate {
                                                            String solver,
                                                            String features) {
 
-        String converterId = aml.toLowerCase() + "Converter";
-        String convertedModel = converters.get(converterId).convert(webAMLModel.getName(), webAMLModel.getModel());
+        WebAMLConverter converter = converters.get(aml.toLowerCase() + "Converter");
+        if (converter == null) {
+            return new ResponseEntity(new ModelErrorResponse().
+                    error("Converter for specified AML does not exist."), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
-        String facadeId = aml.toLowerCase() + "Facade";
-        AmlResult result = facades.get(facadeId).solveModel(convertedModel, solver);
+        String convertedModel = converter.convert(webAMLModel.getName(), webAMLModel.getModel());
+
+        AmlFacade facade = facades.get(aml.toLowerCase() + "Facade");
+        if (facade == null) {
+            return new ResponseEntity(new ModelErrorResponse().
+                    error("Facade for specified AML does not exist."), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        AmlResult result = facade.solveModel(convertedModel, solver.toLowerCase());
 
         if (result.isSolutionFound()) {
             ModelSuccessResponse response = new ModelSuccessResponse().
