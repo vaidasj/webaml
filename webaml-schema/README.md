@@ -1,40 +1,26 @@
-# WebAML
+# WebAML Schema
 
-## TODO
+## Supported structure
 
-- Consider adding dependencies
+- Sets
+- Tables
+- Parameters
+  - Scalar
+  - Indexed
+  - Calculated / Data Manipulation
+- Variables
+  - Continuous
+  - Binary
+  - Integer
+  - Upper/lower bound support
+- Constraints
+- Objectives
 
-## Sets
+## Limitations
 
-- Support only one type: SIMPLE set
-- Do not support:
-    - Sequences as Set Elements e.g. Set t "time" / 1991 * 2000 /;
-    - Declaring multiple sets with one keywords
-    - Aliases e.g. Alias (c,cp, cpp, cppp);
-    - Subsets
-    - Multi dimensional sets since they be modeled as tables
-    - Singleton sets
-    - Universal set where wildcard is used as set identifier
-    - Dynamic sets
+- No syntactic sugar not supported (e.g., sequence as set)
+- Only indexing over full range of the set (no partial set support)
 
-## Tables
+## Improvements
 
-## Parameters
-
-
-## Variables
-
-- Supported types: FREE, POSITIVE, NEGATIVE, BINARY, or INTEGER
-
-## Equations
-
-## Objective
-
-
-sum_(i=1)^n i^3=((n(n+1))/2)^2
-
-continuous / BINARY / INTEGER.
-
-INDEXED / SCALAR
-
-only full range of index supported
+- Consider adding JSON schema dependencies between different data structures
