@@ -3,6 +3,8 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Jusevičius"
   given-names: "Vaidas"
+- family-names: "Paulavičius"
+  given-names: "Remigijus"
 title: "vaidasj/webaml: WebAML Tool for Algebraic Modeling Languages "
 version: 1.0.0
 doi: 10.5281/zenodo.5457364
