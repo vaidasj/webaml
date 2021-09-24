@@ -1,0 +1,975 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: graphviz version 2.49.0 (20210828.1703)
+%%Title: %3
+%%Pages: 1
+%%BoundingBox: 36 36 2956 1253
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+/tapered { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 2956 1253
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 2920 1217 boxprim clip newpath
+1 1 set_scale 0 rotate 40 40 translate
+% cluster_9
+gsave
+1 setlinewidth
+0 0 0.26667 graphcolor
+newpath 8 8 moveto
+8 902 lineto
+2507 902 lineto
+2507 8 lineto
+closepath stroke
+0 0 0.26667 graphcolor
+24 /Arial set_font
+1176.5 36.8 moveto 162 (API Application) alignedtext
+0 0 0.26667 graphcolor
+19 /Arial set_font
+1114.5 16.8 moveto 286 ([Container: Java and Spring Boot]) alignedtext
+grestore
+% 3
+gsave
+0 0 0.6 nodecolor
+newpath 2911.5 291 moveto
+2532.5 291 lineto
+2532.5 132 lineto
+2911.5 132 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.41961 nodecolor
+newpath 2911.5 291 moveto
+2532.5 291 lineto
+2532.5 132 lineto
+2911.5 132 lineto
+closepath stroke
+0 0 1 nodecolor
+34 /Arial set_font
+2678.5 242.8 moveto 87 (AMLs) alignedtext
+0 0 1 nodecolor
+19 /Arial set_font
+2644.5 220.8 moveto 155 ([Software System]) alignedtext
+0 0 1 nodecolor
+24 /Arial set_font
+2561.5 183.8 moveto 321 (AMLs \(GAMS, AMPL, Pyomo\)) alignedtext
+0 0 1 nodecolor
+24 /Arial set_font
+2571 159.8 moveto 302 (installed locally on the node.) alignedtext
+grestore
+% 7
+gsave
+0.58219 0.68545 0.83529 nodecolor
+newpath 1797 1209 moveto
+1437 1209 lineto
+1437 992 lineto
+1797 992 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58252 0.69128 0.58431 nodecolor
+newpath 1797 1209 moveto
+1437 1209 lineto
+1437 992 lineto
+1797 992 lineto
+closepath stroke
+0 0 1 nodecolor
+34 /Arial set_font
+1524 1160.8 moveto 186 (Single-Page) alignedtext
+0 0 1 nodecolor
+34 /Arial set_font
+1533.5 1126.8 moveto 167 (Application) alignedtext
+0 0 1 nodecolor
+19 /Arial set_font
+1520.5 1104.8 moveto 193 ([Container: JavaScript]) alignedtext
+0 0 1 nodecolor
+24 /Arial set_font
+1466 1067.8 moveto 302 (Provides all of the Web AML) alignedtext
+0 0 1 nodecolor
+24 /Arial set_font
+1468.5 1043.8 moveto 297 (functionality to modelers via) alignedtext
+0 0 1 nodecolor
+24 /Arial set_font
+1546 1019.8 moveto 142 (web browser.) alignedtext
+grestore
+% 10
+gsave
+0.58255 0.44583 0.94118 nodecolor
+newpath 1545.5 596 moveto
+1136.5 596 lineto
+1136.5 413 lineto
+1545.5 413 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58444 0.44643 0.65882 nodecolor
+newpath 1545.5 596 moveto
+1136.5 596 lineto
+1136.5 413 lineto
+1545.5 413 lineto
+closepath stroke
+0 0 0 nodecolor
+34 /Arial set_font
+1232 547.8 moveto 218 (AMLController) alignedtext
+0 0 0 nodecolor
+19 /Arial set_font
+1165.5 525.8 moveto 351 ([Component: Spring Boot Rest Controller]) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1201.5 488.8 moveto 279 (Provides meta information) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1197.5 464.8 moveto 287 (about supported AMLs and) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1299.5 440.8 moveto 83 (solvers.) alignedtext
+grestore
+% 7->10
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 1730.9676 991.9966 moveto
+1738.5483 980.5442 1745.1016 968.4912 1750 956 curveto
+1782.3279 873.5623 1762.4468 790.9089 1684 694 curveto
+1649.4882 651.366 1602.6354 616.8762 1554.6565 589.6338 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 1556.1256 586.4457 moveto
+1545.6873 584.6311 lineto
+1552.7157 592.559 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 1556.1256 586.4457 moveto
+1545.6873 584.6311 lineto
+1552.7157 592.559 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+1764 788.8 moveto 197 (Makes API calls to) alignedtext
+0 0 0.43922 edgecolor
+19 /Arial set_font
+1831.5 768.8 moveto 62 ([REST]) alignedtext
+grestore
+% 11
+gsave
+0.58255 0.44583 0.94118 nodecolor
+newpath 1647.5 877 moveto
+1238.5 877 lineto
+1238.5 694 lineto
+1647.5 694 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58444 0.44643 0.65882 nodecolor
+newpath 1647.5 877 moveto
+1238.5 877 lineto
+1238.5 694 lineto
+1647.5 694 lineto
+closepath stroke
+0 0 0 nodecolor
+34 /Arial set_font
+1316 828.8 moveto 254 (Solver Controller) alignedtext
+0 0 0 nodecolor
+19 /Arial set_font
+1267.5 806.8 moveto 351 ([Component: Spring Boot Rest Controller]) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1293.5 769.8 moveto 299 (Converts WebAML model to) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1300 745.8 moveto 286 (target AML and sends it for) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1402 721.8 moveto 82 (solving.) alignedtext
+grestore
+% 7->11
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 1557.1191 991.7832 moveto
+1538.0783 957.5317 1517.1119 919.8163 1498.4019 886.1597 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 1501.361 884.2791 moveto
+1493.443 877.2394 lineto
+1495.2428 887.6803 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 1501.361 884.2791 moveto
+1493.443 877.2394 lineto
+1495.2428 887.6803 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+1535 937.8 moveto 197 (Makes API calls to) alignedtext
+0 0 0.43922 edgecolor
+19 /Arial set_font
+1602.5 917.8 moveto 62 ([REST]) alignedtext
+grestore
+% 16
+gsave
+0.58255 0.44583 0.94118 nodecolor
+newpath 1537 315 moveto
+1145 315 lineto
+1145 108 lineto
+1537 108 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58444 0.44643 0.65882 nodecolor
+newpath 1537 315 moveto
+1145 315 lineto
+1145 108 lineto
+1537 108 lineto
+closepath stroke
+0 0 0 nodecolor
+34 /Arial set_font
+1245 266.8 moveto 192 (AML Facade) alignedtext
+0 0 0 nodecolor
+19 /Arial set_font
+1244 244.8 moveto 194 ([Component: Interface]) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1184.5 207.8 moveto 313 (An interface for implementing) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1199.5 183.8 moveto 283 (translation of requests and) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1174 159.8 moveto 334 (responses to/from specific AML) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1312.5 135.8 moveto 57 (CLIs.) alignedtext
+grestore
+% 10->16
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 1341 412.6228 moveto
+1341 384.9508 1341 354.1953 1341 325.2615 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 1344.5001 325.1113 moveto
+1341 315.1113 lineto
+1337.5001 325.1113 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 1344.5001 325.1113 moveto
+1341 315.1113 lineto
+1337.5001 325.1113 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+1341 357.8 moveto 55 (Uses) alignedtext
+grestore
+% 12
+gsave
+0.58255 0.44583 0.94118 nodecolor
+newpath 396.5 584 moveto
+33.5 584 lineto
+33.5 425 lineto
+396.5 425 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58444 0.44643 0.65882 nodecolor
+newpath 396.5 584 moveto
+33.5 584 lineto
+33.5 425 lineto
+396.5 425 lineto
+closepath stroke
+0 0 0 nodecolor
+34 /Arial set_font
+62.5 535.8 moveto 305 (Web AML Converter) alignedtext
+0 0 0 nodecolor
+19 /Arial set_font
+118 513.8 moveto 194 ([Component: Interface]) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+82.5 476.8 moveto 265 (Interface for Web AML to) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+88 452.8 moveto 254 (specific AMLs converter) alignedtext
+grestore
+% 11->12
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 1238.3063 702.8966 moveto
+1226.4597 699.5582 1214.6354 696.5516 1203 694 curveto
+983.209 645.8001 917.0224 709.5798 698 658 curveto
+668.5158 651.0565 664.0059 640.7287 635 632 curveto
+555.2064 607.9878 531.0901 619.0039 451 596 curveto
+436.3825 591.8015 421.3973 587.081 406.412 582.0569 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 407.1627 578.6156 moveto
+396.5683 578.714 lineto
+404.9117 585.2438 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 407.1627 578.6156 moveto
+396.5683 578.714 lineto
+404.9117 585.2438 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+698 638.8 moveto 55 (Uses) alignedtext
+grestore
+% 11->16
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 1238.3536 704.1703 moveto
+1226.4684 700.4938 1214.6255 697.067 1203 694 curveto
+1185.9816 689.5102 588.4427 609.3734 577 596 curveto
+524.1229 534.201 527.3213 477.3983 577 413 curveto
+644.8001 325.1109 932.3851 268.1988 1134.6607 238.2329 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 1135.4459 241.6552 moveto
+1144.8307 236.7383 lineto
+1134.428 234.7296 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 1135.4459 241.6552 moveto
+1144.8307 236.7383 lineto
+1134.428 234.7296 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+577 498.3 moveto 55 (Uses) alignedtext
+grestore
+% 17
+gsave
+0.58255 0.44583 0.94118 nodecolor
+newpath 1064 596 moveto
+668 596 lineto
+668 413 lineto
+1064 413 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58444 0.44643 0.65882 nodecolor
+newpath 1064 596 moveto
+668 596 lineto
+668 413 lineto
+1064 413 lineto
+closepath stroke
+0 0 0 nodecolor
+34 /Arial set_font
+754.5 547.8 moveto 223 (GAMS Facade) alignedtext
+0 0 0 nodecolor
+19 /Arial set_font
+754 525.8 moveto 224 ([Component: Spring Bean]) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+732.5 488.8 moveto 267 (A bridge for translation of) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+697 464.8 moveto 338 (requests and responses to/from) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+808.5 440.8 moveto 115 (GAMS CLI) alignedtext
+grestore
+% 11->17
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 1255.6646 693.9167 moveto
+1193.8779 664.0406 1125.003 630.7371 1062.5485 600.5382 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 1063.9085 597.3081 moveto
+1053.3821 596.1059 lineto
+1060.8612 603.6101 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 1063.9085 597.3081 moveto
+1053.3821 596.1059 lineto
+1060.8612 603.6101 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+1171 638.8 moveto 55 (Uses) alignedtext
+grestore
+% 13
+gsave
+0.58255 0.44583 0.94118 nodecolor
+newpath 364.5 865 moveto
+33.5 865 lineto
+33.5 706 lineto
+364.5 706 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58444 0.44643 0.65882 nodecolor
+newpath 364.5 865 moveto
+33.5 865 lineto
+33.5 706 lineto
+364.5 706 lineto
+closepath stroke
+0 0 0 nodecolor
+34 /Arial set_font
+69.5 816.8 moveto 259 (GAMS Converter) alignedtext
+0 0 0 nodecolor
+19 /Arial set_font
+87 794.8 moveto 224 ([Component: Spring Bean]) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+62.5 757.8 moveto 273 (Converts GAMS model to) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+122 733.8 moveto 154 (specific AMLs.) alignedtext
+grestore
+% 13->12
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 105.9902 705.7649 moveto
+90.0784 683.1394 81.5971 657.6216 92 632 curveto
+97.719 617.9144 105.8433 604.5359 115.2254 592.1198 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 118.107 594.1183 moveto
+121.5597 584.1018 lineto
+112.6143 589.7789 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 118.107 594.1183 moveto
+121.5597 584.1018 lineto
+112.6143 589.7789 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+92 638.8 moveto 125 (Implements) alignedtext
+grestore
+% 14
+gsave
+0.58255 0.44583 0.94118 nodecolor
+newpath 1166.5 865 moveto
+843.5 865 lineto
+843.5 706 lineto
+1166.5 706 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58444 0.44643 0.65882 nodecolor
+newpath 1166.5 865 moveto
+843.5 865 lineto
+843.5 706 lineto
+1166.5 706 lineto
+closepath stroke
+0 0 0 nodecolor
+34 /Arial set_font
+879.5 816.8 moveto 251 (AMPL Converter) alignedtext
+0 0 0 nodecolor
+19 /Arial set_font
+893 794.8 moveto 224 ([Component: Spring Bean]) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+872.5 757.8 moveto 265 (Converts AMPL model to) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+928 733.8 moveto 154 (specific AMLs.) alignedtext
+grestore
+% 14->12
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 843.9233 705.9519 moveto
+831.5908 701.4623 819.1961 697.4014 807 694 curveto
+672.9697 656.6201 628.6716 699.9481 496 658 curveto
+467.0484 648.8461 411.5178 619.6619 357.4151 589.2406 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 358.8266 586.0183 moveto
+348.3974 584.1516 lineto
+355.3862 592.1145 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 358.8266 586.0183 moveto
+348.3974 584.1516 lineto
+355.3862 592.1145 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+496 638.8 moveto 125 (Implements) alignedtext
+grestore
+% 15
+gsave
+0.58255 0.44583 0.94118 nodecolor
+newpath 771.5 865 moveto
+436.5 865 lineto
+436.5 706 lineto
+771.5 706 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58444 0.44643 0.65882 nodecolor
+newpath 771.5 865 moveto
+436.5 865 lineto
+436.5 706 lineto
+771.5 706 lineto
+closepath stroke
+0 0 0 nodecolor
+34 /Arial set_font
+471.5 816.8 moveto 265 (Pyomo Converter) alignedtext
+0 0 0 nodecolor
+19 /Arial set_font
+492 794.8 moveto 224 ([Component: Spring Bean]) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+465.5 757.8 moveto 277 (Converts Pyomo model to) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+527 733.8 moveto 154 (specific AMLs.) alignedtext
+grestore
+% 15->12
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 436.4059 708.716 moveto
+424.138 703.6103 411.9092 698.653 400 694 curveto
+353.6576 675.8936 331.7278 690.4356 294 658 curveto
+273.851 640.6773 258.1569 616.9353 246.2578 593.3422 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 249.3953 591.7907 moveto
+241.8817 584.3209 lineto
+243.0971 594.8459 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 249.3953 591.7907 moveto
+241.8817 584.3209 lineto
+243.0971 594.8459 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+294 638.8 moveto 125 (Implements) alignedtext
+grestore
+% 17->3
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 1064.3181 421.9528 moveto
+1076.6104 418.5157 1088.9009 415.4805 1101 413 curveto
+1526.6631 325.7313 1649.7615 450.5986 2078 377 curveto
+2116.0979 370.4524 2123.1224 358.7206 2161 351 curveto
+2320.2917 318.5316 2369.1826 361.3571 2525 315 curveto
+2542.7007 309.7339 2560.6745 302.8499 2578.1995 295.1378 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 2579.6365 298.3293 moveto
+2587.3191 291.0336 lineto
+2576.7637 291.9459 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 2579.6365 298.3293 moveto
+2587.3191 291.0336 lineto
+2576.7637 291.9459 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+2161 357.8 moveto 183 (Makes RPC calls) alignedtext
+grestore
+% 17->16
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 1014.0141 412.8219 moveto
+1061.7587 383.572 1115.1547 350.86 1164.7304 320.4883 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 1166.5956 323.4503 moveto
+1173.2942 315.2418 lineto
+1162.9388 317.4814 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 1166.5956 323.4503 moveto
+1173.2942 315.2418 lineto
+1162.9388 317.4814 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+1103 357.8 moveto 125 (Implements) alignedtext
+grestore
+% 18
+gsave
+0.58255 0.44583 0.94118 nodecolor
+newpath 2014 596 moveto
+1618 596 lineto
+1618 413 lineto
+2014 413 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58444 0.44643 0.65882 nodecolor
+newpath 2014 596 moveto
+1618 596 lineto
+1618 413 lineto
+2014 413 lineto
+closepath stroke
+0 0 0 nodecolor
+34 /Arial set_font
+1708.5 547.8 moveto 215 (AMPL Facade) alignedtext
+0 0 0 nodecolor
+19 /Arial set_font
+1704 525.8 moveto 224 ([Component: Spring Bean]) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1682.5 488.8 moveto 267 (A bridge for translation of) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1647 464.8 moveto 338 (requests and responses to/from) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+1752 440.8 moveto 128 (AMPL CLIs.) alignedtext
+grestore
+% 18->3
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 2014.0375 422.9649 moveto
+2026.1092 419.2878 2038.1592 415.9222 2050 413 curveto
+2185.5207 379.5548 2226.3867 410.0679 2362 377 curveto
+2371.4127 374.7048 2516.1599 318.9649 2525 315 curveto
+2538.5627 308.917 2552.5084 302.3414 2566.4142 295.5595 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 2568.1094 298.6264 moveto
+2575.5422 291.0762 lineto
+2565.0234 292.3433 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 2568.1094 298.6264 moveto
+2575.5422 291.0762 lineto
+2565.0234 292.3433 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+2429 357.8 moveto 183 (Makes RPC calls) alignedtext
+grestore
+% 18->16
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 1667.9859 412.8219 moveto
+1620.2413 383.572 1566.8453 350.86 1517.2696 320.4883 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 1519.0612 317.4814 moveto
+1508.7058 315.2418 lineto
+1515.4044 323.4503 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 1519.0612 317.4814 moveto
+1508.7058 315.2418 lineto
+1515.4044 323.4503 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+1606 357.8 moveto 125 (Implements) alignedtext
+grestore
+% 19
+gsave
+0.58255 0.44583 0.94118 nodecolor
+newpath 2482 596 moveto
+2086 596 lineto
+2086 413 lineto
+2482 413 lineto
+closepath fill
+1 setlinewidth
+filled
+0.58444 0.44643 0.65882 nodecolor
+newpath 2482 596 moveto
+2086 596 lineto
+2086 413 lineto
+2482 413 lineto
+closepath stroke
+0 0 0 nodecolor
+34 /Arial set_font
+2169.5 547.8 moveto 229 (Pyomo Facade) alignedtext
+0 0 0 nodecolor
+19 /Arial set_font
+2172 525.8 moveto 224 ([Component: Spring Bean]) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+2150.5 488.8 moveto 267 (A bridge for translation of) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+2115 464.8 moveto 338 (requests and responses to/from) alignedtext
+0 0 0 nodecolor
+24 /Arial set_font
+2215 440.8 moveto 138 (Pyomo CLIs.) alignedtext
+grestore
+% 19->3
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 2482.1151 460.3364 moveto
+2536.1011 441.4567 2591.5961 414.6944 2635 377 curveto
+2658.5588 356.5402 2676.7246 328.1041 2690.2133 300.6224 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 2693.4871 301.8872 moveto
+2694.6095 291.352 lineto
+2687.1622 298.8878 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 2693.4871 301.8872 moveto
+2694.6095 291.352 lineto
+2687.1622 298.8878 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+2659 357.8 moveto 183 (Makes RPC calls) alignedtext
+grestore
+% 19->16
+gsave
+1 setlinewidth
+dashed
+0 0 0.43922 edgecolor
+newpath 2085.9514 425.4316 moveto
+2073.8277 421.1106 2061.7746 416.9323 2050 413 curveto
+1882.4702 357.0516 1689.4015 303.1281 1547.0802 265.3213 curveto
+stroke
+0 0 0.43922 edgecolor
+newpath 1547.9143 261.9216 moveto
+1537.3512 262.741 lineto
+1546.1197 268.6877 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.43922 edgecolor
+newpath 1547.9143 261.9216 moveto
+1537.3512 262.741 lineto
+1546.1197 268.6877 lineto
+closepath stroke
+0 0 0.43922 edgecolor
+24 /Arial set_font
+1935 357.8 moveto 125 (Implements) alignedtext
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+end
+restore
+%%EOF
