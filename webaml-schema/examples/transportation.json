@@ -72,7 +72,7 @@
       	"indexes": ["i", "j"],
       	"value": null,
       	"bounds": ["0", null],
-      	"description": "Transport cost in thousands of dollars per cases"
+      	"description": "Amount of commodity to ship from plant i to market j"
       }
     ],
     "constraints": [
