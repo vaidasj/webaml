@@ -1,29 +1,31 @@
 
- workspace "WebAML Optimization System" "Architecture viewpoints for open-source WebAML based optimization system." {
+ workspace "WebAML and Optimization System" "Architecture viewpoints for open-source WebAML and Optimization System." {
 
     model {
         modeler = person "AML Modeler" "A person developing AML models."
         neos = softwaresystem "NEOS Server" "Remote solvers available via NEOS platform." "External"
 
-        ecosystem = enterprise "WebAML Optimization System" {
+        ecosystem = enterprise "WebAML and Optimization Ecosystem" {
 
-            amls = softwaresystem "AMLs" "AMLs (GAMS, AMPL, Pyomo) installed locally on the node." "External"
+            amls = softwaresystem "AMLs" "AMLs (GAMS, AMPL, Pyomo, JuMP) installed locally on the node." "External"
             gamsConvert = softwaresystem "GAMS Convert" "GAMS tool to transpile GAMS model to other AMLs." "External"
             solvers = softwaresystem "Solvers" "Solvers installed locally on the node." "External"
 
-            webAMLSystem = softwaresystem "Web AML System" "Allows modelers to create and solve optimization models." {
-                singlePageApplication = container "Single-Page Application" "Provides all of the Web AML functionality to modelers via web browser." "JavaScript" "Web Browser"
+            webAMLSystem = softwaresystem "WebAML and Optimization System" "Allows modelers to create and solve optimization models." {
+                singlePageApplication = container "Single-Page Application" "Provides all of the WebAML functionality to modelers via web browser." "JavaScript" "Web Browser"
                 webApplication = container "Web Application" "Delivers the static content and the single page application." "node.js"
-                apiApplication = container "API Application" "Provides Web AML parsing, converting and solving functionality via RESTFul API." "Java and Spring Boot" {
+                apiApplication = container "API Application" "Provides WebAML parsing, converting and solving functionality via RESTFul API." "Java and Spring Boot" {
                     amlController = component "AMLController" "Provides meta information about supported AMLs and solvers." "Spring Boot Rest Controller"
                     modelController = component "Solver Controller" "Converts WebAML model to target AML and sends it for solving." "Spring Boot Rest Controller"
-                    webAMLConverter = component "Web AML Converter" "Interface for Web AML to specific AMLs converter" "Interface"
+                    webAMLConverter = component "WebAML Converter" "Interface for WebAML to specific AMLs converter" "Interface"
                     gamsConverter = component "GAMS Converter" "Converts GAMS model to specific AMLs." "Spring Bean"
                     amplConverter = component "AMPL Converter" "Converts AMPL model to specific AMLs." "Spring Bean"
+                    jumpConverter = component "JuMP Converter" "Converts JuMP model to specific AMLs." "Spring Bean"
                     pyomoConverter = component "Pyomo Converter" "Converts Pyomo model to specific AMLs." "Spring Bean"
                     amlFacade = component "AML Facade" "An interface for implementing translation of requests and responses to/from specific AML CLIs." "Interface"
                     gamsFacade = component "GAMS Facade" "A bridge for translation of requests and responses to/from GAMS CLI" "Spring Bean"
                     amplFacade = component "AMPL Facade" "A bridge for translation of requests and responses to/from AMPL CLIs." "Spring Bean"
+                    jumpFacade = component "JuMP Facade" "A bridge for translation of requests and responses to/from JumP CLIs." "Spring Bean"
                     pyomoFacade = component "Pyomo Facade" "A bridge for translation of requests and responses to/from Pyomo CLIs." "Spring Bean"
 
             }
@@ -32,15 +34,15 @@
 
         # relationships between people and software systems
 
-        uses = modeler -> webAMLSystem "Uses UI to build and solve Web AML models"
+        uses = modeler -> webAMLSystem "Uses UI to build and solve WebAML models"
         webAMLSystem -> amls "Uses to solve created AML model"
         webAMLSystem -> gamsConvert "Uses to convert generated GAMS model to other AML"
         amls -> solvers "Calls local solvers to solve the model"
         amls -> neos "Calls NEOS Server to solve the model"
 
         # relationships to/from containers
-        modeler -> webApplication "Visits Web AML System"
-        modeler -> singlePageApplication "Creates and solves Web AML models"
+        modeler -> webApplication "Visits WebAML and Optimization System
+        modeler -> singlePageApplication "Creates and solves WebAML models"
         webApplication -> singlePageApplication "Delivers to the modeler's web browser"
 
         # relationships to/from components
@@ -52,12 +54,15 @@
         modelController -> gamsFacade "Uses"
         gamsConverter -> webAMLConverter "Implements"
         amplConverter -> webAMLConverter "Implements"
+        jumpConverter -> webAMLConverter "Implements"
         pyomoConverter -> webAMLConverter "Implements"
         gamsFacade -> amlFacade "Implements"
         amplFacade -> amlFacade "Implements"
+        jumpFacade -> amlFacade "Implements"
         pyomoFacade -> amlFacade "Implements"
         gamsFacade -> amls "Makes RPC calls"
         amplFacade -> amls "Makes RPC calls"
+        jumpFacade -> amls "Makes RPC calls"
         pyomoFacade -> amls "Makes RPC calls"
 
         }
@@ -104,9 +109,9 @@
             autoLayout
         }
 
-        dynamic apiApplication "Solve" "Summarises how solving Web AML with AMPL works." {
-            singlePageApplication -> modelController "Submits Web AML model for solving"
-            modelController -> gamsConverter "Build GAMS model from Web AML"
+        dynamic apiApplication "Solve" "Summarises how solving WebAML with AMPL works." {
+            singlePageApplication -> modelController "Submits WebAML model for solving"
+            modelController -> gamsConverter "Build GAMS model from WebAML"
             gamsConverter -> modelController "Return GAMS model"
             modelController -> gamsFacade "Convert GAMS model to AMPL"
             gamsFacade -> modelController "Returns AMPL scalar model"
